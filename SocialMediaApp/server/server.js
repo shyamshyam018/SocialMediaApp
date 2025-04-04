@@ -6,9 +6,7 @@ import cors from "cors";
 import { dbConnect } from "./dbConnect/dbConnect.js";
 import { routes } from "./routes/routes.js";
 
-
 const app = express();
-
 
 dotenv.config();
 app.use(helmet())

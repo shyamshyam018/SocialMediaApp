@@ -1,16 +1,12 @@
-import UserModel from "../models/user.model.js";
+import { registerUser , loginUser } from "../services/auth.service.js";
 
 // Register User
 export const register = async (req,res) => {
     try {
-        const newUser = new UserModel({
-            username : "shyam" , 
-            email : "shyam@gmail.com" ,
-            password : "password" , 
-        })
-        await newUser.save();
+        const newUser = await registerUser(req.body);
+        const {password, ...data} = newUser._doc;
         res.status(200).json({
-            newUser ,
+            data ,
             message : "User has been registered Successfully"
         })
     } catch (error) {
@@ -20,3 +16,19 @@ export const register = async (req,res) => {
         })
     } 
 };
+
+export const login = async (req,res) => {
+    try {
+       const loggedInUser = await loginUser(req.body);
+       const {password, ...data} = loggedInUser._doc;
+       res.status(200).json({
+        message:"Logged in Successfully!",
+        data ,
+       });
+    } catch (error) {
+        res.status(500).json({
+            error :  error.message ,
+            message :"Error Logging User"
+        })
+    } 
+}

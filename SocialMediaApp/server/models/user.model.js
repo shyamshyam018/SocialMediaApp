@@ -27,7 +27,17 @@ const userSchema = new Schema({
     isAdmin : {
         type : Boolean , 
         default : false ,
-    }
+    },
+    desc : {
+        type : String , 
+    },
+    from : {
+        type : String ,
+    },
+    relationship : {
+        type : Number ,
+        enum : [1,2,3] ,
+    },
 });
 
 export default mongoose.model("User",userSchema);
