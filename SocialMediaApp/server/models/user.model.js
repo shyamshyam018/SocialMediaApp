@@ -38,6 +38,14 @@ const userSchema = new Schema({
         type : Number ,
         enum : [1,2,3] ,
     },
+    followers : {
+        type : Array ,
+        default : [] ,
+    },
+    followings : {
+        type : Array , 
+        default : [] ,
+    },
 });
 
 export default mongoose.model("User",userSchema);
