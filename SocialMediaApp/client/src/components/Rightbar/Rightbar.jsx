@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../../../public/vite.svg"; // Placeholder avatar
+import profilePic from "../../../public/vite.svg"; 
 
 
 const dummyTeamMembers = [
