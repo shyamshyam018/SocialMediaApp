@@ -1,58 +1,48 @@
-import React from "react";
-import { MdOutlineMoreVert } from "react-icons/md";
-import profilePic from "../../../public/vite.svg";
+import React from 'react';
 
-const Post = () => {
+const Post = ({ user, content, image }) => {
   return (
-    <div className="w-full max-w-[600px] mx-auto bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 mb-6">
-      {/* Header */}
-      <div className="flex items-center justify-between p-4">
-        <div className="flex items-center gap-3">
-          <img
-            src={profilePic}
-            alt="Profile"
-            className="w-10 h-10 rounded-full object-cover"
-          />
-          <div>
-            <h2 className="text-indigo-700 font-semibold text-sm">shyam_raj</h2>
-            <p className="text-gray-400 text-xs">2 hours ago</p>
-          </div>
-        </div>
-        <MdOutlineMoreVert className="text-gray-600 text-lg cursor-pointer" />
-      </div>
-
-      {/* Caption */}
-      <div className="px-4 text-sm text-gray-700 pb-2">
-        Here’s my first post on this new platform! Excited to share more 😄
-      </div>
-
-      {/* Image */}
-      <div>
+    <div className="max-w-xl mx-auto my-6 bg-white shadow-lg rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-xl">
+      {/* Post Header */}
+      <div className="flex items-center p-4">
         <img
-          src={profilePic}
-          alt="Post"
-          className="w-full max-h-[400px] object-cover"
+          src={user.profilePic}
+          alt="User"
+          className="w-12 h-12 rounded-full object-cover"
         />
+        <div className="ml-4">
+          <h3 className="font-semibold text-lg">{user.name}</h3>
+          <p className="text-gray-500 text-sm">{user.timestamp}</p>
+        </div>
       </div>
 
-      {/* Reactions */}
-      <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100">
-        <div className="flex items-center gap-2">
+      {/* Post Content */}
+      <div className="px-4 pb-4">
+        <p className="text-gray-700">{content}</p>
+      </div>
+
+      {/* Post Image */}
+      {image && (
+        <div className="w-full h-64 overflow-hidden">
           <img
-            src={profilePic}
-            alt="Like"
-            className="w-6 h-6 rounded-full cursor-pointer hover:scale-110 transition"
+            src={image}
+            alt="Post Image"
+            className="object-cover w-full h-full transition-transform transform hover:scale-110"
           />
-          <img
-            src={profilePic}
-            alt="Love"
-            className="w-6 h-6 rounded-full cursor-pointer hover:scale-110 transition"
-          />
-          <span className="text-sm text-gray-600 ml-2">120 likes</span>
         </div>
-        <span className="text-sm text-indigo-500 cursor-pointer hover:underline">
-          24 comments
-        </span>
+      )}
+
+      {/* Post Footer */}
+      <div className="flex justify-between items-center p-4 bg-gray-50">
+        <button className="text-blue-500 hover:text-blue-700 transition-all">
+          Like
+        </button>
+        <button className="text-blue-500 hover:text-blue-700 transition-all">
+          Comment
+        </button>
+        <button className="text-blue-500 hover:text-blue-700 transition-all">
+          Share
+        </button>
       </div>
     </div>
   );
