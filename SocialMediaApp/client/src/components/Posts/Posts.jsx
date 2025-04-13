@@ -33,7 +33,7 @@ const Posts = () => {
         <img
           src={profilePic}
           alt="Post"
-          className="w-full max-h-[400px] object-cover rounded-b-xl transition-transform transform hover:scale-105"
+          className="w-full max-h-[400px] object-cover rounded-b-xl transition-transform transform hover:scale-101"
         />
       </div>
 
@@ -43,12 +43,12 @@ const Posts = () => {
           <img
             src={profilePic}
             alt="Like"
-            className="w-7 h-7 rounded-full cursor-pointer hover:scale-110 transition"
+            className="w-7 h-7 rounded-full cursor-pointer hover:scale-101 transition"
           />
           <img
             src={profilePic}
             alt="Love"
-            className="w-7 h-7 rounded-full cursor-pointer hover:scale-110 transition"
+            className="w-7 h-7 rounded-full cursor-pointer hover:scale-101 transition"
           />
           <span className="text-sm">120 likes</span>
         </div>
