@@ -1,6 +1,5 @@
 import React from "react";
-import profilePic from "../../../public/vite.svg"; 
-
+import profilePic from "../../../public/vite.svg";
 
 const dummyTeamMembers = [
   { id: 1, name: "Alice Johnson", avatar: null },
@@ -11,97 +10,95 @@ const dummyTeamMembers = [
 const Rightbar = () => {
   const ProjectRightbarHome = () => {
     return (
-      <>
-        <div className="flex items-center">
+      <div className="bg-white rounded-2xl shadow-md p-4 mb-6">
+        {/* Announcement */}
+        <div className="flex items-center gap-3 mb-6">
           <img
             src={profilePic}
             alt="announcement icon"
-            className="w-[40px] h-[40px] mr-[10px]"
+            className="w-[40px] h-[40px]"
           />
-          <span className="font-semibold text-md">
+          <span className="font-semibold text-md text-gray-800">
             Project <b>"Nova Launch"</b> has a meeting today at 3 PM.
           </span>
         </div>
 
+        {/* Image */}
         <img
           src={profilePic}
           alt="Meeting"
-          className="w-full rounded-lg mt-[30px] mb-[30px]"
+          className="w-full rounded-lg mb-6 shadow-sm"
         />
 
-        <h1 className="font-bold text-lg mb-[20px]">Team Members Online</h1>
-        <ul className="m-0 p-0">
+        {/* Team Members Online */}
+        <h1 className="font-bold text-lg mb-4 text-gray-700">Team Members Online</h1>
+        <ul className="m-0 p-0 space-y-4">
           {dummyTeamMembers.map((member) => (
             <li
               key={member.id}
-              className="flex items-center mb-4 gap-3 font-medium"
+              className="flex items-center gap-3 font-medium text-gray-800 hover:bg-gray-100 p-2 rounded-lg transition"
             >
               <img
                 src={member.avatar || profilePic}
                 alt="avatar"
                 className="w-[40px] h-[40px] rounded-full object-cover"
               />
-              {member.name}
+              <span>{member.name}</span>
             </li>
           ))}
         </ul>
-      </>
+      </div>
     );
   };
 
   const ProjectRightbarDetail = () => {
     return (
-      <>
-        <button className="bg-blue-600 text-white mt-10 mb-5 py-2 px-5 rounded-md cursor-pointer hover:bg-blue-700 transition">
+      <div className="bg-white rounded-2xl shadow-md p-4">
+        {/* Join Meeting Button */}
+        <button className="bg-blue-600 text-white mt-4 mb-6 py-2 px-5 rounded-md cursor-pointer hover:bg-blue-700 transition-all">
           Join Meeting
         </button>
 
-        <h1 className="font-bold text-xl mb-[10px]">Project Details</h1>
-        <div className="mb-[30px]">
-          <div className="mb-[10px]">
-            <span className="font-semibold mr-[15px] text-slate-500">
-              Deadline:
-            </span>
+        {/* Project Details */}
+        <h1 className="font-bold text-xl mb-4 text-gray-700">Project Details</h1>
+        <div className="space-y-4 mb-6">
+          <div className="flex justify-between">
+            <span className="font-semibold text-slate-500">Deadline:</span>
             <span>May 25, 2025</span>
           </div>
-          <div className="mb-[10px]">
-            <span className="font-semibold mr-[15px] text-slate-500">
-              Status:
-            </span>
+          <div className="flex justify-between">
+            <span className="font-semibold text-slate-500">Status:</span>
             <span>On Track</span>
           </div>
-          <div className="mb-[10px]">
-            <span className="font-semibold mr-[15px] text-slate-500">
-              Priority:
-            </span>
+          <div className="flex justify-between">
+            <span className="font-semibold text-slate-500">Priority:</span>
             <span>High</span>
           </div>
         </div>
 
-        <h1 className="font-bold text-xl mb-[10px]">Assigned Members</h1>
-        <div className="grid grid-cols-3 gap-4">
+        {/* Assigned Members */}
+        <h1 className="font-bold text-xl mb-4 text-gray-700">Assigned Members</h1>
+        <div className="grid grid-cols-3 gap-6">
           {dummyTeamMembers.map((member) => (
             <div key={member.id} className="flex flex-col items-center">
               <img
-                src={member.avatar || defaultAvatar}
+                src={member.avatar || profilePic}
                 alt="team member"
-                className="w-[100px] h-[100px] object-cover rounded-md"
+                className="w-[100px] h-[100px] object-cover rounded-md shadow-sm"
               />
-              <span>{member.name}</span>
+              <span className="mt-2 text-gray-700 font-medium">{member.name}</span>
             </div>
           ))}
         </div>
-      </>
+      </div>
     );
   };
 
   return (
-    <div style={{ flex: 3.5 }}>
-      <div className="pt-[20px] pr-[20px]">
-        {/* Toggle based on context */}
-        <ProjectRightbarHome />
-        {/* <ProjectRightbarDetail /> */}
-      </div>
+    <div style={{ flex: 3.5 }} className="p-4">
+      {/* Toggle based on context */}
+      <ProjectRightbarHome />
+      {/* <ProjectRightbarDetail /> */}
     </div>
   );
 };
