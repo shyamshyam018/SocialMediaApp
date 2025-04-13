@@ -98,7 +98,7 @@ const Rightbar = () => {
     <div style={{ flex: 3.5 }} className="p-4">
       {/* Toggle based on context */}
       <ProjectRightbarHome />
-      {/* <ProjectRightbarDetail /> */}
+      <ProjectRightbarDetail />
     </div>
   );
 };
